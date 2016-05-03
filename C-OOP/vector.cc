@@ -27,13 +27,21 @@ template <typename Tmp> class Vector {
 			public:
 				Iterator (Tmp* position) : position_ (position) {}
 			
-				Iterator operator ++ () { position_++; return *this; }
+				Iterator operator ++ () { ++position_; return *this; }
 				
-				Iterator operator++(int) { ++position_; return *this; }
+				Iterator operator++(int) {
+					Iterator post_it(position_);
+					position_++;
+					return post_it;
+				}
 				
-				Iterator operator -- () { position_--; return *this; }
+				Iterator operator -- () { --position_; return *this; }
 				
-				Iterator operator --(int) { --position_; return *this; }
+				Iterator operator --(int) {
+					Iterator post_it(position_);
+					position_--;
+					return post_it;
+				}
 				
 				Iterator operator += (unsigned n) { position_ += n; return *this; }
 				
@@ -55,13 +63,21 @@ template <typename Tmp> class Vector {
 			public:
 				Reverse_Iterator (Tmp* position) : position_ (position) {}
 			
-				Reverse_Iterator operator ++ () { position_--; return *this; }
+				Reverse_Iterator operator ++ () { --position_; return *this; }
 				
-				Reverse_Iterator operator ++(int) { --position_; return *this; }
+				Reverse_Iterator operator ++(int) {
+					Reverse_Iterator post_it(position_);
+					position_--;
+					return post_it;
+				}
 				
-				Reverse_Iterator operator -- () { position_++; return *this; }
+				Reverse_Iterator operator -- () { ++position_; return *this; }
 				
-				Reverse_Iterator operator --(int) { ++position_; return *this; }
+				Reverse_Iterator operator --(int) {
+					Reverse_Iterator post_it(position_);
+					position_++;
+					return post_it;
+				}
 				
 				Reverse_Iterator operator += (unsigned n) { position_-=n; return *this; }
 				
@@ -85,13 +101,21 @@ template <typename Tmp> class Vector {
 			public:
 				Const_Iterator (Tmp* position) : position_ (position) {}
 			
-				Const_Iterator operator ++ () { position_++; return *this; }
+				Const_Iterator operator ++ () { ++position_; return *this; }
 				
-				Const_Iterator operator++(int) { ++position_; return *this; }
+				Const_Iterator operator++(int) {
+					Const_Iterator post_it(position_);
+					position_++;
+					return post_it;
+				}
 				
-				Const_Iterator operator -- () { position_--; return *this; }
+				Const_Iterator operator -- () { --position_; return *this; }
 				
-				Const_Iterator operator --(int) { --position_; return *this; }
+				Const_Iterator operator --(int) {
+					Const_Iterator post_it(position_);
+					position_--;
+					return post_it;
+				}
 				
 				Const_Iterator operator += (unsigned n) { position_ += n; return *this; }
 				
@@ -115,13 +139,21 @@ template <typename Tmp> class Vector {
 			public:
 				Const_Reverse_Iterator (Tmp* position) : position_ (position) {}
 			
-				Const_Reverse_Iterator operator ++ () { position_--; return *this; }
+				Const_Reverse_Iterator operator ++ () { --position_; return *this; }
 				
-				Const_Reverse_Iterator operator ++(int) { --position_; return *this; }
+				Const_Reverse_Iterator operator ++(int) {
+					Const_Reverse_Iterator post_it(position_);
+					position_--;
+					return post_it;
+				}
 				
-				Const_Reverse_Iterator operator -- () { position_++; return *this; }
+				Const_Reverse_Iterator operator -- () { ++position_; return *this; }
 				
-				Const_Reverse_Iterator operator --(int) { ++position_; return *this; }
+				Const_Reverse_Iterator operator --(int) {
+					Const_Reverse_Iterator post_it(position_);
+					position_++;
+					return post_it;
+				}
 				
 				Const_Reverse_Iterator operator += (unsigned n) { position_-=n; return *this; }
 				
